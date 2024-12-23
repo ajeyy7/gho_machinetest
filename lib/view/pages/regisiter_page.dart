@@ -76,7 +76,7 @@ class RegisterPage extends StatelessWidget {
                   suffixIcon: Icon(Icons.visibility_off),
                 ),
                 SizedBox(height: 16),
-                CommonButton(color: Colors.blue, widget: Text('Register')),
+                CommonButton(color: Colors.blue, widget: Text('Register'),width: 350,),
                 SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

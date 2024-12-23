@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16),
-               CommonButton(color: Colors.blue, widget: Text('Login')),
+               CommonButton(color: Colors.blue, widget: Text('Login'),width: 350,),
                 SizedBox(height: 16),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.center,

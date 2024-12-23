@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTextFiled extends StatelessWidget {
-  final String name;
+  final String? name;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool visible;
@@ -11,7 +11,7 @@ class MyTextFiled extends StatelessWidget {
   final TextEditingController? controller;
   const MyTextFiled(
       {super.key,
-      required this.name,
+       this.name,
       this.controller,
       this.visible = true,
       required this.hinttext,
@@ -32,7 +32,7 @@ class MyTextFiled extends StatelessWidget {
           Visibility(
             visible: visible,
             child: Text(
-              name,
+              name??'',
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
               textAlign: TextAlign.start,
             ),
