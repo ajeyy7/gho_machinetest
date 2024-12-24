@@ -14,17 +14,22 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/profile_pic.jpg'),
-              radius: 30,
-            ),
+          leading: Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/images/profile_pic.jpg'),
+                radius: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text('Hi,Ajay'), Text('How are you today?')],
+              )
+            ],
           ),
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.notification_add),
+              child: Icon(Icons.notifications_none_outlined),
             )
           ],
         ),

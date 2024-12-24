@@ -7,9 +7,9 @@ import 'package:gho_machinetest/view_model/bottom_barvm.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider( providers: [
-    ChangeNotifierProvider(create: (_)=>BottomBarvm())
-  ],     child: const MyApp()));
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => BottomBarvm())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+             scaffoldBackgroundColor: const Color(0xFFF5F5F5),
           fontFamily: 'Poppins',
         ),
-        home: HomePage());
+        home: LoginPage());
   }
 }

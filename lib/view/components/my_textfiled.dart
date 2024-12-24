@@ -22,8 +22,6 @@ class MyTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: 18,
-        right: 18,
         bottom: 8,
       ),
       child: Column(
@@ -45,7 +43,8 @@ class MyTextFiled extends StatelessWidget {
               decoration: InputDecoration(
                 suffixIcon: suffixIcon,
                 prefixIcon: prefixIcon,
-                contentPadding: const EdgeInsets.all(16),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 filled: true,
                 fillColor: Colors.white,
                 hintText: hinttext,
