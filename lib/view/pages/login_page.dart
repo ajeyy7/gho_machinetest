@@ -5,7 +5,6 @@ import 'package:gho_machinetest/view/components/common_button.dart';
 import 'package:gho_machinetest/view/components/fb_google_card.dart';
 import 'package:gho_machinetest/view/components/logo_header.dart';
 import 'package:gho_machinetest/view/components/my_textfiled.dart';
-import 'package:gho_machinetest/view/pages/home_page.dart';
 import 'package:gho_machinetest/view/pages/regisiter_page.dart';
 import 'package:gho_machinetest/view_model/login_vm.dart';
 import 'package:provider/provider.dart';
@@ -80,7 +79,8 @@ class LoginPage extends StatelessWidget {
                         if (success) {
                           await Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => BottomBar()),
+                            MaterialPageRoute(
+                                builder: (context) => BottomBar()),
                           );
                         }
                       },
@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                             ),
                       width: 350,
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -103,7 +103,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Flexible(
@@ -120,7 +120,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

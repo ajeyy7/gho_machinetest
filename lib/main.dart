@@ -13,8 +13,7 @@ void main() {
     ChangeNotifierProvider(create: (_) => BottomBarvm()),
     ChangeNotifierProvider(create: (_) => RegisterViewModel()),
     ChangeNotifierProvider(create: (_) => LoginViewModel()),
-        ChangeNotifierProvider(create: (_) => HomeViewModel()),
-
+    ChangeNotifierProvider(create: (_) => HomeViewModel()),
   ], child: const MyApp()));
 }
 
@@ -26,14 +25,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        scaffoldBackgroundColor: const Color(0xFFEFEFEF),
         fontFamily: 'Poppins',
       ),
       home: FutureBuilder<bool>(
         future: _checkLoginStatus(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return Scaffold(
+                body: const Center(child: CircularProgressIndicator()));
           } else if (snapshot.hasData && snapshot.data == true) {
             return const BottomBar();
           } else {

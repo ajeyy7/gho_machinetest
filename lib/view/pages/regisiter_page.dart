@@ -34,7 +34,7 @@ class RegisterPage extends StatelessWidget {
                       hinttext: 'Write your email',
                       controller: emailController,
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -65,14 +65,9 @@ class RegisterPage extends StatelessWidget {
                                         hintStyle: const TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 14),
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          borderSide: const BorderSide(
-                                            width: 0.85,
-                                            color: Colors.grey,
-                                          ),
-                                        ),
+                                        border: InputBorder.none,
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
                                       ),
                                       items: regsiterVm.countries
                                           .map((country) =>
@@ -101,7 +96,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     MyTextFiled(
                       obscureText: regsiterVm.visible,
                       controller: passwordController,
@@ -134,14 +129,14 @@ class RegisterPage extends StatelessWidget {
                       ),
                       width: 350,
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('Or continue with'),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Flexible(
@@ -158,7 +153,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

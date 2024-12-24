@@ -51,13 +51,9 @@ class MyTextFiled extends StatelessWidget {
                   fontWeight: FontWeight.w200,
                   fontSize: 14,
                   color: Colors.grey[400]),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(
-                  width: 0.85,
-                  color: Colors.grey,
-                ),
-              ),
+              border: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
             ),
           ),
         ),

@@ -10,13 +10,13 @@ class LogoHeader extends StatelessWidget {
     return Stack(
       children: [
         CustomPaint(
-          size: Size(MediaQuery.of(context).size.width, 290),
+          size: Size(MediaQuery.of(context).size.width, 200),
           painter: WavePainter(),
         ),
         Center(
           child: Image.asset(
             'assets/images/splash_logo.png',
-            height: 250,
+            height: 200,
           ),
         ),
       ],
