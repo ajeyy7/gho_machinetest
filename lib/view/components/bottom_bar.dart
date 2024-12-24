@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gho_machinetest/view/components/color.dart';
 import 'package:gho_machinetest/view/pages/home_page.dart';
-import 'package:gho_machinetest/view/pages/login_page.dart';
-import 'package:gho_machinetest/view/pages/regisiter_page.dart';
+import 'package:gho_machinetest/view/pages/other_pages.dart';
 import 'package:gho_machinetest/view_model/bottom_barvm.dart';
 import 'package:provider/provider.dart';
 
@@ -11,14 +11,15 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       HomePage(),
-      LoginPage(),
-      RegisterPage(),
-      HomePage(),
-      LoginPage(),
+      OtherPages(),
+      OtherPages(),
+      OtherPages(),
+      OtherPages()
     ];
     final bottomVm = Provider.of<BottomBarvm>(context);
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: primary,
           currentIndex: bottomVm.currentIndex,
           onTap: (index) {
             bottomVm.navigate(index);

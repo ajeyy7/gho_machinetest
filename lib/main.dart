@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gho_machinetest/view/components/bottom_bar.dart';
 import 'package:gho_machinetest/view/pages/home_page.dart';
 import 'package:gho_machinetest/view/pages/login_page.dart';
+import 'package:gho_machinetest/view/pages/other_pages.dart';
 import 'package:gho_machinetest/view_model/bottom_barvm.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Poppins',
         ),
-        home: BottomBar());
+        home: HomePage());
   }
 }

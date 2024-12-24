@@ -11,7 +11,7 @@ class MyTextFiled extends StatelessWidget {
   final TextEditingController? controller;
   const MyTextFiled(
       {super.key,
-       this.name,
+      this.name,
       this.controller,
       this.visible = true,
       required this.hinttext,
@@ -32,7 +32,7 @@ class MyTextFiled extends StatelessWidget {
           Visibility(
             visible: visible,
             child: Text(
-              name??'',
+              name ?? '',
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
               textAlign: TextAlign.start,
             ),
@@ -49,8 +49,10 @@ class MyTextFiled extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
                 hintText: hinttext,
-                hintStyle:
-                    const TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+                hintStyle: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 14,
+                    color: Colors.grey[400]),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: const BorderSide(
