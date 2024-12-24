@@ -61,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                                                 horizontal: 16, vertical: 8),
                                         filled: true,
                                         fillColor: Colors.white,
-                                        hintText: '',
+                                        hintText: '🇺🇸',
                                         hintStyle: const TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 14),

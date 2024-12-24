@@ -3,6 +3,7 @@ import 'package:gho_machinetest/helper/db.dart';
 import 'package:gho_machinetest/view/components/bottom_bar.dart';
 import 'package:gho_machinetest/view/pages/login_page.dart';
 import 'package:gho_machinetest/view_model/bottom_barvm.dart';
+import 'package:gho_machinetest/view_model/home_vm.dart';
 import 'package:gho_machinetest/view_model/login_vm.dart';
 import 'package:gho_machinetest/view_model/register_vm.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,8 @@ void main() {
     ChangeNotifierProvider(create: (_) => BottomBarvm()),
     ChangeNotifierProvider(create: (_) => RegisterViewModel()),
     ChangeNotifierProvider(create: (_) => LoginViewModel()),
+        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+
   ], child: const MyApp()));
 }
 

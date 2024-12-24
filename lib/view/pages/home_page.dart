@@ -7,12 +7,15 @@ import 'package:gho_machinetest/view/components/heading.dart';
 import 'package:gho_machinetest/view/components/my_textfiled.dart';
 import 'package:gho_machinetest/view/components/offer_card.dart';
 import 'package:gho_machinetest/view/components/service_card.dart';
+import 'package:gho_machinetest/view_model/home_vm.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final homeVm = Provider.of<HomeViewModel>(context);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -86,10 +89,10 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => OfferContainer(
                       text: 'Hello Doctor!',
-                      text2: 'off for your first ',
+                      text2: 'off for your',
                       image: 'assets/images/offer_image.png',
                       offer: '50',
-                      text3: 'video call with your doctor',
+                      text3: 'first video call with your doctor',
                     ),
                   ),
                 ),
@@ -105,18 +108,25 @@ class HomePage extends StatelessWidget {
                     }).toList(),
                   ),
                 ),
-                Header(title: 'Top Doctors', onSeeAllPressed: () {}),
-                Column(
-                  children: doctorList.map((doctor) {
-                    return DoctorCard(
-                        imageUrl: doctor['imagePath'] ?? '',
-                        name: doctor['name'] ?? '',
-                        specialization: doctor['specialization'] ?? '',
-                        location: doctor['location'] ?? '',
-                        rating: doctor['rating'] ?? '',
-                        reviews: doctor['review'] ?? '',
-                        price: doctor['price'] ?? '');
-                  }).toList(),
+                Header(
+                    title: 'Top Doctors',
+                    onSeeAllPressed: () {
+                      homeVm.showAll();
+                    }),
+                Visibility(
+                  visible: homeVm.showDoctor,
+                  child: Column(
+                    children: doctorList.map((doctor) {
+                      return DoctorCard(
+                          imageUrl: doctor['imagePath'] ?? '',
+                          name: doctor['name'] ?? '',
+                          specialization: doctor['specialization'] ?? '',
+                          location: doctor['location'] ?? '',
+                          rating: doctor['rating'] ?? '',
+                          reviews: doctor['review'] ?? '',
+                          price: doctor['price'] ?? '');
+                    }).toList(),
+                  ),
                 ),
               ],
             ),

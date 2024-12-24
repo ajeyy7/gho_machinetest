@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gho_machinetest/view/components/bottom_bar.dart';
 import 'package:gho_machinetest/view/components/color.dart';
 import 'package:gho_machinetest/view/components/common_button.dart';
 import 'package:gho_machinetest/view/components/fb_google_card.dart';
@@ -79,7 +80,7 @@ class LoginPage extends StatelessWidget {
                         if (success) {
                           await Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => BottomBar()),
                           );
                         }
                       },
