@@ -6,8 +6,8 @@ class DoctorCard extends StatelessWidget {
   final String name;
   final String specialization;
   final String location;
-  final double rating;
-  final int reviews;
+  final String rating;
+  final String reviews;
   final String price;
 
   const DoctorCard({

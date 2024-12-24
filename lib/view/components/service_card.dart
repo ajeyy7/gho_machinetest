@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gho_machinetest/view/components/color.dart';
 
 class ServiceContainer extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final String image;
   const ServiceContainer({
     super.key,
     required this.text,
-    required this.icon,
+    required this.image,
   });
 
   @override
@@ -28,7 +29,14 @@ class ServiceContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Icon(icon), Text(text)],
+            children: [
+              Image.asset(
+                image,
+                height: 35,
+                color: primary,
+              ),
+              Text(text)
+            ],
           ),
         ),
       ),

@@ -4,13 +4,20 @@ import 'package:gho_machinetest/view/components/common_button.dart';
 import 'package:gho_machinetest/view/components/fb_google_card.dart';
 import 'package:gho_machinetest/view/components/logo_header.dart';
 import 'package:gho_machinetest/view/components/my_textfiled.dart';
+import 'package:gho_machinetest/view/pages/home_page.dart';
 import 'package:gho_machinetest/view/pages/regisiter_page.dart';
+import 'package:gho_machinetest/view_model/login_vm.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loginVm = Provider.of<LoginViewModel>(context);
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -23,12 +30,24 @@ class LoginPage extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 child: Column(
                   children: [
-                    MyTextFiled(name: 'Email', hinttext: 'Write your email'),
+                    MyTextFiled(
+                      name: 'Email',
+                      hinttext: 'Write your email',
+                      controller: emailController,
+                    ),
                     SizedBox(height: 16),
                     MyTextFiled(
+                      obscureText: loginVm.visible,
                       name: 'Password',
                       hinttext: 'Write your Password',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            loginVm.togglePass();
+                          },
+                          icon: Icon(loginVm.visible
+                              ? Icons.remove_red_eye_outlined
+                              : Icons.visibility_off_outlined)),
+                      controller: passwordController,
                     ),
                     SizedBox(height: 8),
                     Align(
@@ -43,11 +62,34 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     CommonButton(
+                      onTap: () async {
+                        bool success = await loginVm.login(
+                            emailController.text.trim(),
+                            passwordController.text.trim());
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(success
+                                ? 'Login Success!'
+                                : 'Login Failed: Invalid credentials'),
+                            backgroundColor:
+                                success ? Colors.green : Colors.red,
+                          ),
+                        );
+
+                        if (success) {
+                          await Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        }
+                      },
                       color: primary,
-                      widget: Text(
-                        'Sign In',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      widget: loginVm.isLoading
+                          ? CircularProgressIndicator()
+                          : Text(
+                              'Sign In',
+                              style: TextStyle(color: Colors.white),
+                            ),
                       width: 350,
                     ),
                     SizedBox(height: 16),

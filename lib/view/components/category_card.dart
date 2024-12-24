@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gho_machinetest/view/components/color.dart';
 
 class CategoryContainer extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final String image;
   const CategoryContainer({
     super.key,
     required this.text,
-    required this.icon,
+    required this.image,
   });
 
   @override
@@ -14,20 +15,25 @@ class CategoryContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 70,
+        height: 50,
         width: 130,
-        decoration: BoxDecoration(
-           boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade200,
-              blurRadius: 8,
-              spreadRadius: 2,
-            ),
-          ],
-            borderRadius: BorderRadius.circular(8), color: Colors.white),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            blurRadius: 8,
+            spreadRadius: 2,
+          ),
+        ], borderRadius: BorderRadius.circular(8), color: Colors.white),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [Icon(icon), Text(text)],
+          children: [
+            Image.asset(
+              image,
+              height: 30,
+              color: primary,
+            ),
+            Text(text)
+          ],
         ),
       ),
     );

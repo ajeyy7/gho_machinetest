@@ -28,11 +28,13 @@ class BottomBar extends StatelessWidget {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.book_online), label: 'booking'),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+                icon: Icon(Icons.calendar_month_rounded), label: 'Bookings'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.chat_outlined), label: 'Chat'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.favorite_outline), label: 'Favorite'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline_outlined), label: 'Profile')
           ]),
       body: pages[bottomVm.currentIndex],
     );

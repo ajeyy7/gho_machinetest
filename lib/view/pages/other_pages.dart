@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gho_machinetest/helper/db.dart';
+import 'package:gho_machinetest/view/components/common_button.dart';
+import 'package:gho_machinetest/view/pages/login_page.dart';
 
 class OtherPages extends StatelessWidget {
   const OtherPages({super.key});
@@ -28,7 +31,22 @@ class OtherPages extends StatelessWidget {
                   Text(
                     'Under Progress',
                     style: TextStyle(fontWeight: FontWeight.bold),
-                  )
+                  ),
+                  CommonButton(
+                      onTap: () async {
+                        await SharedPreferencesHelper.clearUserData();
+                        await Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                        );
+                      },
+                      color: Colors.red,
+                      widget: Text(
+                        'Logout',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      width: 300)
                 ],
               ),
             ),
